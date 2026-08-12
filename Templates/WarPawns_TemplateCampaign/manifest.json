@@ -1,0 +1,20 @@
+{
+  "formatVersion": 1,
+  "id": "template_campaign_mod",
+  "titleKey": "template_campaign_mod.title",
+  "descriptionKey": "template_campaign_mod.description",
+  "author": "Your Name",
+  "version": "1.0.0",
+  "gameVersion": "",
+  "contentType": "Campaign",
+  "campaignId": "template_campaign_mod.campaign",
+  "entry": "campaigns/template_campaign.campaign",
+  "preview": "images/preview.png",
+  "localization": [
+    {
+      "language": "en",
+      "path": "localization/en.json"
+    }
+  ],
+  "workshopId": ""
+}
