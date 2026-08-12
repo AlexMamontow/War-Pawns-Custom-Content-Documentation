@@ -1,0 +1,89 @@
+{
+  "texts": [
+    {
+      "key": "template_standalone_scenario_mod.title",
+      "path": "Template Standalone Scenario"
+    },
+    {
+      "key": "template_standalone_scenario_mod.description",
+      "path": "A minimal custom scenario template for War Pawns."
+    },
+    {
+      "key": "template.scenario.title",
+      "path": "Template Scenario"
+    },
+    {
+      "key": "template.player.officer",
+      "path": "Player Officer"
+    },
+    {
+      "key": "template.player.commanded_unit",
+      "path": "Template Battalion"
+    },
+    {
+      "key": "template.enemy.officer",
+      "path": "Enemy Officer"
+    },
+    {
+      "key": "template.enemy.commanded_unit",
+      "path": "Enemy Battalion"
+    },
+    {
+      "key": "template.unit.player_officer",
+      "path": "Player Officer"
+    },
+    {
+      "key": "template.unit.enemy_officer",
+      "path": "Enemy Officer"
+    },
+    {
+      "key": "template.unit.reinforcement",
+      "path": "Reinforcement"
+    },
+    {
+      "key": "template.objective.main",
+      "path": "Eliminate all enemy units."
+    },
+    {
+      "key": "template.popup.intro.title",
+      "path": "Briefing"
+    },
+    {
+      "key": "template.popup.intro.body",
+      "path": "Secure the enemy position and destroy all hostile units."
+    },
+    {
+      "key": "template.popup.zone.title",
+      "path": "Position secured"
+    },
+    {
+      "key": "template.popup.zone.body",
+      "path": "Your unit entered the target zone. Additional resources received."
+    },
+    {
+      "key": "template.popup.reinforcements.title",
+      "path": "Reinforcements"
+    },
+    {
+      "key": "template.popup.reinforcements.body",
+      "path": "A reinforcement unit has arrived. If the target hex is occupied, the game will use the nearest available hex."
+    },
+    {
+      "key": "template.popup.win.title",
+      "path": "Victory"
+    },
+    {
+      "key": "template.popup.win.body",
+      "path": "The enemy force has been eliminated."
+    },
+    {
+      "key": "template.popup.lose.title",
+      "path": "Defeat"
+    },
+    {
+      "key": "template.popup.lose.body",
+      "path": "Your force has been destroyed."
+    }
+  ],
+  "audio": []
+}

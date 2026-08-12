@@ -1,0 +1,20 @@
+{
+  "formatVersion": 1,
+  "id": "template_standalone_scenario_mod",
+  "titleKey": "template_standalone_scenario_mod.title",
+  "descriptionKey": "template_standalone_scenario_mod.description",
+  "author": "Your Name",
+  "version": "1.0.0",
+  "gameVersion": "",
+  "contentType": "Scenario",
+  "scenarioId": "template_standalone_scenario_mod.scenario_01",
+  "entry": "scenarios/template_scenario.scenario",
+  "preview": "images/preview.png",
+  "localization": [
+    {
+      "language": "en",
+      "path": "localization/en.json"
+    }
+  ],
+  "workshopId": ""
+}
