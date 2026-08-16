@@ -1,0 +1,61 @@
+# Unit Actions Reference
+
+This file lists the built-in unit action IDs available in War Pawns.
+
+These are **unit actions**, not scenario graph `ActionType` values.
+
+Use these IDs only where a JSON payload expects unit action IDs or when documenting units that grant/override actions.
+
+`actionId` is the element index in `ActionsConfig.Items`.
+
+## Unit actions
+
+| actionId | assetName | actionClass |
+| --- | --- | --- |
+| 0 | MovementAction | Movement Action |
+| 1 | AttackAction | Attack Action |
+| 2 | FillNonInfantryPersonnelAction | Fill Personnel Action |
+| 3 | FillInfantryPersonnelAction | Fill Personnel Action |
+| 4 | SniperShot | Distant Attack Action |
+| 5 | ArtilleryStrike | Distant Attack Action |
+| 6 | Raid | Raid Action |
+| 7 | NonCapturingMovementAction | Movement Action |
+| 8 | ThrowATGrenade | Throw Grenade With Response Action |
+| 9 | FortifyPositionAction | Change Detail And Trait Action |
+| 10 | ThrowGrenade | Throw Grenade With Response Action |
+| 11 | ReconRaid | Raid Action |
+| 12 | PlaceWiredFenceAction | Change Detail And Trait Action |
+| 13 | PlaceHedgehogAction | Change Detail And Trait Action |
+| 14 | PlaceLandmineAction | Change Detail And Trait Action |
+| 15 | DemolishAction | Change Detail And Trait Action |
+| 16 | DeminingAction | Change Detail And Trait Action |
+| 17 | SwapUnitsAction | Swap Units Action |
+| 18 | AirStrikeAction | Air Strike Action |
+| 19 | AdjacentMoveAction | Adjacent Move Action |
+| 20 | BoostDefenceAction | Granting Trait Action |
+| 21 | BoostAttackAction | Granting Trait Action |
+| 22 | ReconAreaAction | Recon Area Action |
+| 23 | SabotageAction | Granting Trait Action |
+| 24 | EncourageAction | Granting Trait Action |
+| 25 | ISUStrike | Distant Attack Action |
+| 26 | SabotageInfAction | Granting Trait Action |
+| 27 | GuardAllyInfAction | Granting Trait Action |
+| 28 | GuardAllyTankAction | Granting Trait Action |
+| 29 | OfficerEncourageAction | Granting Trait Action |
+
+## Do not confuse with scenario actions
+
+Scenario graph actions are values such as:
+
+- `ShowUnitMessagePopup`
+- `ShowRegularPopup`
+- `ShowTutorialPopup`
+- `ShowNarrationPopup`
+- `HighlightZone`
+- `ClearHighlightZone`
+- `SetFlag`
+- `AddCounter`
+- `SendCommand`
+- `EndMission`
+
+Unit actions in this file are actions that a unit can perform during gameplay.

@@ -1,0 +1,77 @@
+# Trait IDs
+
+Use these `traitId` values in custom scenario payloads, for example in `update_units`, `modify_unit_traits`, `addTraitIds`, `removeTraitIds`, `traitIds`, and `availableTraitIds`.
+
+The ID is the element index in `TraitsConfig.Items`.
+
+| traitId | Name | Type |
+|---:|---|---|
+| 0 | `NoneTrait` | None Trait |
+| 1 | `LightCover` | Passive Combat Bonus Trait |
+| 2 | `FortifiedPosition` | Passive Combat Bonus Trait |
+| 3 | `WireFence` | Passive Regular Bonus Trait |
+| 4 | `Hedghogs` | Passive Regular Bonus Trait |
+| 5 | `Landmines` | Passive Regular Bonus Trait |
+| 6 | `ArtillerySchool` | Global Regular Bonus Trait |
+| 7 | `AssaultRifles` | Passive Combat Bonus Trait |
+| 8 | `Bazooka` | Passive Combat Bonus Trait |
+| 9 | `BoltActionRifles` | Passive Combat Bonus Trait |
+| 10 | `CommandFavor` | Resource Bonus Trait |
+| 11 | `DreadedReputation` | Positional Combat Radius Trait |
+| 12 | `DrillInstructor` | Global Regular Bonus Trait |
+| 13 | `EffectiveAgainstInfantry` | Passive Combat Bonus Trait |
+| 14 | `EffectiveAgainstTanks` | Passive Combat Bonus Trait |
+| 15 | `EffectiveAgainstVehicles` | Passive Combat Bonus Trait |
+| 16 | `EffectiveAttacker` | Passive Combat Bonus Trait |
+| 17 | `EffectiveDefender` | Passive Combat Bonus Trait |
+| 18 | `EliteAssaultRifles` | Passive Combat Bonus Trait |
+| 19 | `EliteMachinegun` | Passive Combat Bonus Trait |
+| 20 | `Engineer` | Ignore Self Traits Trait |
+| 21 | `HeavyHowitzer` | Passive Combat Bonus Trait |
+| 22 | `Howitzer` | Passive Combat Bonus Trait |
+| 23 | `PersonalGuard` | Passive Regular Bonus Trait |
+| 24 | `LightMachinegun` | Passive Combat Bonus Trait |
+| 25 | `LogisticsMastery` | Improved Healing Trait |
+| 26 | `Machinegun` | Passive Combat Bonus Trait |
+| 27 | `MotivationSpeech` | Positional Combat Radius Trait |
+| 28 | `Panzershreck` | Passive Combat Bonus Trait |
+| 29 | `Raider` | Passive Combat Bonus Trait |
+| 30 | `ReconTraining` | Global Regular Bonus Trait |
+| 31 | `SemiAutoRifles` | Passive Combat Bonus Trait |
+| 32 | `ImprovedOptics` | Global Regular Bonus Trait |
+| 33 | `ShootingInstructor` | Global Regular Bonus Trait |
+| 34 | `SniperRifle` | Passive Combat Bonus Trait |
+| 35 | `SpecialForces` | Global Regular Bonus Trait |
+| 36 | `SpecialTraining` | Passive Combat Bonus Trait |
+| 37 | `TankDestoryer` | Passive Combat Bonus Trait |
+| 38 | `SkilledCommander` | Passive Regular Bonus Trait |
+| 39 | `Flamethrower` | Ignore Opponent Combat Traits |
+| 40 | `OffensiveDoctrine` | Global Combat Bonus Trait |
+| 41 | `DefensiveDoctrine` | Global Combat Bonus Trait |
+| 42 | `Aggressive` | Positional Combat Radius Trait |
+| 43 | `Napalm` | Passive Combat Bonus Trait |
+| 44 | `SwapTrait` | Granting Action Trait |
+| 45 | `EliteInfantry` | Passive Combat Bonus Trait |
+| 46 | `AirStrikeTrait` | Granting Action Trait |
+| 47 | `AdjacentMoveTrait` | Granting Action Trait |
+| 48 | `BoostedDefence` | Passive Combat Bonus Trait |
+| 49 | `BoostedAttack` | Passive Combat Bonus Trait |
+| 50 | `LightHowitzer` | Passive Combat Bonus Trait |
+| 51 | `DefenseExpertise` | Positional Regular Radius Trait |
+| 52 | `ReconAreaTrait` | Granting Action Trait |
+| 53 | `SabotageGrantingTrait` | Granting Action Trait |
+| 54 | `SabotageDebuffTrait` | Passive Regular Bonus Trait |
+| 55 | `SuppressionFire` | Positional Combat Radius Trait |
+| 56 | `Encouraged` | Passive Combat Bonus Trait |
+| 57 | `Deadly` | Passive Combat Bonus Trait |
+| 58 | `Sturdy` | Passive Combat Bonus Trait |
+| 59 | `TankVeteran` | Passive Combat Bonus Trait |
+| 60 | `HeavyTankDestroyer` | Passive Combat Bonus Trait |
+| 61 | `Guarded` | Passive Combat Bonus Trait |
+| 62 | `SabotageInfDebuffTrait` | Passive Regular Bonus Trait |
+| 63 | `IntensiveSpecialTraining` | Passive Combat Bonus Trait |
+| 64 | `ImprovedSniperRifle` | Passive Combat Bonus Trait |
+| 65 | `EncouragedByOfficer` | Passive Combat Bonus Trait |
+| 66 | `CommanderPresence` | Positional Regular Radius Trait |
+| 67 | `ReconDisruption` | Positional Regular Radius Trait |
+| 68 | `EncourageGrantingTrait` | Granting Action Trait |
