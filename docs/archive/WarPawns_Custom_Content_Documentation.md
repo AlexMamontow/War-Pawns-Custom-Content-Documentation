@@ -1,9 +1,4 @@
-# War Pawns custom content format reference
-
-This is the full format reference for custom scenarios and campaigns. If you are new, start with [START_HERE.md](../START_HERE.md), then use the recipes in `docs/recipes/`.
-
----
-
+# War Pawns custom content guide
 
 This guide describes the v1 local/Workshop custom content format for War Pawns.
 

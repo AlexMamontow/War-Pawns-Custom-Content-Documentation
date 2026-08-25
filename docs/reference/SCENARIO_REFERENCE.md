@@ -1,5 +1,12 @@
 # Scenario reference
 
+This file lists scenario triggers, conditions, scenario actions, commands, and target selectors.
+
+**Important:** Unit actions are different from scenario actions. Unit actions such as Move, Attack, Raid, Recon, etc. are listed separately in [UNIT_ACTIONS.md](UNIT_ACTIONS.md). Scenario actions are things the scenario graph can execute, such as popups, highlights, flags, counters, and `SendCommand`.
+
+---
+
+
 ## Triggers
 
 | Trigger | Description |
