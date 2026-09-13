@@ -22,3 +22,18 @@ The tutorial map is intentionally not included as a recommended public template 
 | Stoneville | 58893908bca24292aab1d45de9d1325b | Winter | 256 | -7..15 | -23..0 | 0..15 |
 
 All listed maps use the same 256 cube-coordinate grid. Terrain, movement cost, details, and tile traits differ by map.
+
+
+## Important
+
+Do not invent map IDs. A `map.id` works only if it is one of the built-in IDs listed on this page.
+
+For a custom map file, use `map.path` instead, for example:
+
+```json
+"map": {
+  "path": "maps/my_map.map"
+}
+```
+
+Full guide: [../05_using_maps.md](../05_using_maps.md)

@@ -1,145 +1,96 @@
-# 03 — Creating your first campaign
+# Creating your first campaign
 
-A campaign is a playable list of scenario files with optional unlock requirements.
+Start from `templates/WarPawns_TemplateCampaign`.
 
-Start from:
+A campaign mod has one `manifest.json`, one `.campaign` file, and one or more `.scenario` files.
+
+## 1. Copy the campaign template
+
+Copy:
 
 ```text
 templates/WarPawns_TemplateCampaign
 ```
 
-## Step 1 — Copy the campaign template
-
-Copy the folder into:
-
-```text
-Documents/War Pawns/Mods/
-```
-
-Rename it, for example:
-
-```text
-Documents/War Pawns/Mods/My_First_Campaign
-```
-
-## Step 2 — Rename the manifest
-
-Open:
-
-```text
-manifest.json
-```
-
-Change:
-
-```json
-"id": "template_campaign_mod",
-"campaignId": "template_campaign_mod.campaign"
-```
-
 to:
 
-```json
-"id": "my_first_campaign_mod",
-"campaignId": "my_first_campaign_mod.campaign"
+```text
+Documents/War Pawns/Mods/MyFirstCampaign
 ```
 
-Keep:
-
-```json
-"contentType": "Campaign"
-```
-
-## Step 3 — Rename the campaign file IDs
-
-Open:
+## 2. Understand the files
 
 ```text
-campaigns/template_campaign.campaign
+MyFirstCampaign/
+  manifest.json
+  campaigns/template_campaign.campaign
+  scenarios/mission_01.scenario
+  scenarios/mission_02.scenario
+  localization/en.json
 ```
 
-Change:
+`manifest.json` tells the game this is a campaign mod.
+
+`template_campaign.campaign` lists the campaign missions and unlock rules.
+
+Each `.scenario` file is a playable mission.
+
+## 3. Campaign manifest
+
+For a campaign, `manifest.json` must use:
 
 ```json
-"campaignId": "my_first_campaign_mod.campaign"
+"contentType": "Campaign",
+"entry": "campaigns/template_campaign.campaign"
 ```
 
-Then rename mission IDs:
+The `campaignId` in the manifest should match the `campaignId` in the `.campaign` file.
+
+## 4. Campaign file
+
+A minimal campaign has a list of scenarios:
 
 ```json
-"scenarioId": "my_first_campaign_mod.mission_01"
-```
-
-and:
-
-```json
-"scenarioId": "my_first_campaign_mod.mission_02"
-```
-
-If mission 2 requires mission 1, update the dependency too:
-
-```json
-"requiredScenarioIds": [
-  "my_first_campaign_mod.mission_01"
-]
-```
-
-## Step 4 — Rename IDs inside mission files
-
-Open:
-
-```text
-scenarios/mission_01.scenario
-scenarios/mission_02.scenario
-```
-
-Update their `scenarioId` fields to match the campaign file.
-
-## Step 5 — Test mission unlocks
-
-By default, mission 2 is locked until mission 1 is completed.
-
-For quick testing, temporarily make mission 1 complete after round 1:
-
-```json
-"winConditionGroups": [
+"scenarios": [
   {
-    "conditions": [
-      {
-        "type": "RoundAtLeast",
-        "intValue": 1
-      }
-    ]
-  }
-],
-"onWinActions": [
+    "scenarioId": "my_campaign.mission_01",
+    "path": "scenarios/mission_01.scenario"
+  },
   {
-    "type": "EndMission"
+    "scenarioId": "my_campaign.mission_02",
+    "path": "scenarios/mission_02.scenario",
+    "requiredScenarioIds": ["my_campaign.mission_01"]
   }
 ]
 ```
 
-Start mission 1, end the first turn, and confirm mission 2 unlocks.
+This means:
 
-Remove this temporary win condition before publishing.
+- mission 1 is available immediately
+- mission 2 unlocks after mission 1 is completed
 
-## Step 6 — Validate in game
+## 5. Mission scenario IDs must match
 
-Open:
+If the campaign file says:
 
-```text
-Mods
+```json
+"scenarioId": "my_campaign.mission_01"
 ```
 
-Expected status:
+then `scenarios/mission_01.scenario` must also contain:
 
-```text
-Valid
+```json
+"scenarioId": "my_campaign.mission_01"
 ```
 
-Then open:
+If these do not match, the campaign can become invalid or the mission will not launch.
 
-```text
-Singleplayer -> Custom Campaigns
-```
+## 6. Testing campaign unlocks
 
+For testing, you can temporarily make mission 1 complete immediately or after round 1.
+
+Use this recipe:
+
+[recipes/temporary_mission_completion_for_testing.md](recipes/temporary_mission_completion_for_testing.md)
+
+Remove the temporary win condition before publishing.

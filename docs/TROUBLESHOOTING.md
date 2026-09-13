@@ -1,8 +1,10 @@
 # Troubleshooting
 
+Use this page when a mod appears in game but does not work as expected.
+
 ## My mod does not appear in the Mods screen
 
-Check the folder layout.
+Check the folder structure.
 
 Correct:
 
@@ -19,9 +21,8 @@ Documents/War Pawns/Mods/MyMod/MyMod/manifest.json
 Also check:
 
 - the file is named exactly `manifest.json`
-- `manifest.json` is valid JSON
-- `contentType` is either `Scenario` or `Campaign`
-- the `entry` file exists
+- the mod is inside `Documents/War Pawns/Mods/`
+- the repository ZIP was unzipped before copying
 
 ## My mod is Invalid
 
@@ -29,14 +30,54 @@ Open `Mods`, select your mod, and read the validation messages.
 
 Common causes:
 
+- invalid JSON syntax
+- missing `manifest.json`
 - wrong `contentType`
 - missing `entry`
-- `scenarioId` mismatch between `manifest.json` and `.scenario`
-- `campaignId` mismatch between `manifest.json` and `.campaign`
-- invalid map ID
-- invalid JSON syntax
-- unknown trigger, condition, action, or command
-- missing scenario file referenced by a campaign
+- entry file does not exist
+- manifest `scenarioId` does not match the `.scenario` file
+- manifest `campaignId` does not match the `.campaign` file
+- campaign mission path is wrong
+- scenario map is missing
+- scenario graph is missing
+
+## Play button is disabled
+
+This usually means the game can see the mod, but the selected scenario cannot be launched.
+
+Check:
+
+1. Is the mod `Valid` in the `Mods` screen?
+2. Does the scenario have a valid map?
+3. Does the scenario have a scenario graph with an entry step and main objective?
+4. Does the scenario have players?
+5. If this is a campaign mission, is it locked by `requiredScenarioIds`?
+
+The most common map problem:
+
+```json
+"map": {
+  "id": "some_custom_map_id"
+}
+```
+
+This works only if `some_custom_map_id` is a built-in map ID included in the game.
+
+For custom map files, use:
+
+```json
+"map": {
+  "path": "maps/my_map.map"
+}
+```
+
+and make sure the mod contains:
+
+```text
+maps/my_map.map
+```
+
+Full map guide: [05_using_maps.md](05_using_maps.md)
 
 ## The scenario starts and instantly ends
 
@@ -44,28 +85,61 @@ Usually the win condition is already true at scenario start.
 
 Example:
 
-- win condition says `NoUnitsMatch` for enemy units
-- enemy units failed to spawn because of invalid player, unit, nation, or coordinate
-- therefore the game sees no enemies and ends the mission immediately
+- win condition says no enemy units remain
+- enemy units failed to spawn
+- therefore the mission immediately completes
+
+Check the console and validation messages for failed unit spawns.
+
+Common causes:
+
+- invalid `ownerPlayerId`
+- invalid `unitDataId`
+- invalid unit position
+- wrong map
+- no enemy units in `initialUnits`
+
+## A unit does not spawn
 
 Check:
 
-- enemy `initialUnits` exist
-- enemy `ownerPlayerId` exists in `players`
-- enemy `unitDataId` exists for that player's `nationId`
-- enemy position is a valid cube coordinate on the selected map
+- `ownerPlayerId` exists in `players`
+- `unitDataId` exists for that player's `nationId`
+- the target `position` exists on the selected map
+- the target position is not blocked in a way that prevents spawning
 
-## The game shows raw localization keys
-
-If the UI shows something like:
+Cube coordinates should usually follow:
 
 ```text
-my_mod.popup.title
+x + y + z = 0
 ```
 
-then the key is missing from `localization/en.json` or the localization file is not listed in `manifest.json`.
+Example:
 
-Check:
+```json
+"position": { "x": 4, "y": -12, "z": 8 }
+```
+
+## Text shows as a key instead of readable text
+
+Example problem:
+
+```text
+my_mod.mission_01.title
+```
+
+This means the localization key was not found.
+
+Check `localization/en.json` and make sure the key exists:
+
+```json
+{
+  "key": "my_mod.mission_01.title",
+  "path": "Mission 1"
+}
+```
+
+Also check that `manifest.json` includes the localization file:
 
 ```json
 "localization": [
@@ -73,87 +147,49 @@ Check:
 ]
 ```
 
-## A popup appears without image
+## My popup has no image
 
-Check that the thumbnail path is relative to the mod root:
+Check:
+
+- the image path is relative to the mod folder
+- the file exists
+- the file is a readable image format
+
+Example:
 
 ```json
 "thumbnail": "images/popup_thumbnail.png"
 ```
 
-Do not use an absolute path.
+Expected file:
 
-## Spawned unit does not appear
+```text
+MyMod/images/popup_thumbnail.png
+```
 
-Check:
+## JSON error after editing
 
-- `ownerPlayerId` exists
-- `unitDataId` exists for the owner's nation
-- the target coordinate is valid
-- the map is loaded correctly
+JSON is strict.
 
-If the requested spawn hex is occupied, the game tries to use the nearest available hex. If no valid hex is available, the unit is skipped with a warning.
+Common mistakes:
 
-## Unit selector affects no units
+- comments are not allowed
+- missing comma between fields
+- trailing comma after the last item
+- unescaped quotation marks inside `payload`
 
-Empty selectors match no units.
-
-Use `allUnits: true` only when you intentionally want all units.
+When editing `payload`, remember that it is a JSON string inside JSON, so internal quotes must be escaped.
 
 Example:
 
 ```json
-"targets": {
-  "allUnits": true,
-  "aliveOnly": true,
-  "teamIds": [1]
-}
+"payload": "{"amount":5}"
 ```
 
-## JSON does not load
+## Steam Workshop upload is blocked
 
-JSON does not support comments, trailing commas, or unescaped quotes inside strings.
+Invalid mods should not be published.
 
-Bad:
+Check the mod in the `Mods` screen first. It should be `Valid` before publishing.
 
-```json
-{
-  "type": "SendCommand",
-  "payload": "{"playerId":0,"amount":3}"
-}
-```
-
-Good:
-
-```json
-{
-  "type": "SendCommand",
-  "payload": "{"playerId":0,"amount":3}"
-}
-```
-
-## Steam Workshop item uploads as 0 bytes
-
-Check Steamworks setup for the app. Workshop file transfer must be enabled for `SetItemContent` / `SubmitItemUpdate` uploads to work.
-
-## Steam Workshop AccessDenied
-
-Usually this means Steam denied the operation for the current app/account/build.
-
-Check:
-
-- the game is running under the correct Steam AppID
-- the account has access to the app
-- Workshop is enabled for the app
-- the Steam Workshop legal agreement has been accepted if Steam asks for it
-
-## Steam Workshop InvalidParam
-
-Check:
-
-- title is not empty
-- description is not invalid/too long
-- content folder exists
-- preview path exists if preview is set
-- `workshopId` belongs to an existing item when updating
-
+Warnings can be acceptable, but validation errors should be fixed before upload.

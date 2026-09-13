@@ -1,8 +1,8 @@
 # WarPawns_TemplateCampaign
 
-This is a working two-mission custom campaign template.
+This is a working two-mission campaign template.
 
-Mission 2 is locked until mission 1 is completed.
+Use it after you have already tested the standalone scenario template.
 
 ## Install
 
@@ -18,56 +18,43 @@ The final path must be:
 Documents/War Pawns/Mods/WarPawns_TemplateCampaign/manifest.json
 ```
 
-Then launch War Pawns and open:
+Launch War Pawns, open `Mods`, and check that the template is `Valid`.
+
+Then open:
 
 ```text
-Mods
-```
-
-Expected status:
-
-```text
-Valid
-```
-
-Play it from:
-
-```text
-Singleplayer -> Custom Campaigns -> Template Campaign -> Play
+Singleplayer -> Custom Campaigns
 ```
 
 ## Files
 
-| File | Purpose |
-| --- | --- |
-| `manifest.json` | Tells the game this folder is a custom campaign mod |
-| `campaigns/template_campaign.campaign` | Campaign mission list and unlock requirements |
-| `scenarios/mission_01.scenario` | First campaign mission |
-| `scenarios/mission_02.scenario` | Second campaign mission |
-| `localization/en.json` | Campaign, mission, objective, popup, and unit text |
-| `images/preview.png` | Campaign/mission preview image |
-| `images/popup_thumbnail.png` | Example popup image |
-| `audio/` | Optional audio files |
+```text
+manifest.json                         tells the game this is a campaign mod
+campaigns/template_campaign.campaign  mission list and unlock rules
+scenarios/mission_01.scenario          first mission
+scenarios/mission_02.scenario          second mission
+localization/en.json                   visible text and audio keys
+images/preview.png                     campaign and mission preview image
+images/popup_thumbnail.png             popup image used by the template
+```
 
 ## How mission unlock works
 
-Mission 2 has this dependency in `campaigns/template_campaign.campaign`:
+Mission 2 contains:
 
 ```json
-"requiredScenarioIds": [
-  "template_campaign_mod.mission_01"
-]
+"requiredScenarioIds": ["template_campaign_mod.mission_01"]
 ```
 
 This means mission 2 unlocks only after mission 1 is completed.
 
-## Testing unlocks quickly
+For testing unlocks, use:
 
-To test campaign unlocks, temporarily make mission 1 complete after round 1. See:
+[../../docs/recipes/temporary_mission_completion_for_testing.md](../../docs/recipes/temporary_mission_completion_for_testing.md)
 
-```text
-docs/recipes/temporary_mission_completion_for_testing.md
-```
+Useful guides:
 
-Remove the temporary test win condition before publishing.
-
+- [../../START_HERE.md](../../START_HERE.md)
+- [../../docs/03_creating_your_first_campaign.md](../../docs/03_creating_your_first_campaign.md)
+- [../../docs/05_using_maps.md](../../docs/05_using_maps.md)
+- [../../docs/TROUBLESHOOTING.md](../../docs/TROUBLESHOOTING.md)

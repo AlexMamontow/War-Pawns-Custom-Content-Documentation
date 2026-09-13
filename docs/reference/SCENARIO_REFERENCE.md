@@ -1,4 +1,14 @@
-# Scenario reference
+# Scenario scripting reference
+
+This is the technical reference for `.scenario` files. New users should start with [../../START_HERE.md](../../START_HERE.md), then use recipes in [../recipes/](../recipes/).
+
+Related references:
+
+- maps: [BUILT_IN_MAPS.md](BUILT_IN_MAPS.md) and [../05_using_maps.md](../05_using_maps.md)
+- units: [UNITS.md](UNITS.md)
+- traits: [TRAITS.md](TRAITS.md)
+- unit actions: [UNIT_ACTIONS.md](UNIT_ACTIONS.md)
+- payload fields: [PAYLOADS.md](PAYLOADS.md)
 
 This file lists scenario triggers, conditions, scenario actions, commands, and target selectors.
 

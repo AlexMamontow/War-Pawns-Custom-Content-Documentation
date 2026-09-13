@@ -1,8 +1,8 @@
-# 01 — Installing a template
+# Installing a template
 
-This guide explains how to install a template mod into War Pawns.
+This page explains only installation. It does not explain scenario editing.
 
-## Local mod folder
+## Local mods folder
 
 War Pawns reads local mods from:
 
@@ -10,77 +10,86 @@ War Pawns reads local mods from:
 Documents/War Pawns/Mods/
 ```
 
-Each direct child folder inside `Mods` is treated as one local mod.
+Each mod must be one folder inside `Mods`.
 
-## Correct folder layout
+## Install the standalone scenario template
 
-Standalone scenario:
-
-```text
-Documents/War Pawns/Mods/WarPawns_TemplateScenario/
-  manifest.json
-  scenarios/template_scenario.scenario
-  localization/en.json
-  images/preview.png
-  images/popup_thumbnail.png
-  audio/README.md
-```
-
-Campaign:
+Copy:
 
 ```text
-Documents/War Pawns/Mods/WarPawns_TemplateCampaign/
-  manifest.json
-  campaigns/template_campaign.campaign
-  scenarios/mission_01.scenario
-  scenarios/mission_02.scenario
-  localization/en.json
-  images/preview.png
-  images/popup_thumbnail.png
-  audio/README.md
+templates/WarPawns_TemplateScenario
 ```
 
-## The manifest rule
-
-The game expects `manifest.json` directly inside the mod folder.
-
-Correct:
+to:
 
 ```text
-Documents/War Pawns/Mods/MyMod/manifest.json
+Documents/War Pawns/Mods/WarPawns_TemplateScenario
 ```
 
-Wrong:
+Correct final structure:
 
 ```text
-Documents/War Pawns/Mods/MyMod/MyMod/manifest.json
+Documents/War Pawns/Mods/WarPawns_TemplateScenario/manifest.json
+Documents/War Pawns/Mods/WarPawns_TemplateScenario/scenarios/template_scenario.scenario
+Documents/War Pawns/Mods/WarPawns_TemplateScenario/localization/en.json
+Documents/War Pawns/Mods/WarPawns_TemplateScenario/images/preview.png
 ```
 
-## Validate in game
+## Install the campaign template
 
-Open:
+Copy:
+
+```text
+templates/WarPawns_TemplateCampaign
+```
+
+to:
+
+```text
+Documents/War Pawns/Mods/WarPawns_TemplateCampaign
+```
+
+Correct final structure:
+
+```text
+Documents/War Pawns/Mods/WarPawns_TemplateCampaign/manifest.json
+Documents/War Pawns/Mods/WarPawns_TemplateCampaign/campaigns/template_campaign.campaign
+Documents/War Pawns/Mods/WarPawns_TemplateCampaign/scenarios/mission_01.scenario
+Documents/War Pawns/Mods/WarPawns_TemplateCampaign/scenarios/mission_02.scenario
+```
+
+## How to confirm it worked
+
+Open War Pawns and go to:
 
 ```text
 Mods
 ```
 
-Select your mod and check `Status`.
+A correctly installed template should appear there and show `Valid`.
 
-- `Valid` — playable and can be published/updated.
-- `Warning` — playable, but something should be checked, such as game version mismatch or missing preview.
-- `Invalid` — cannot be played until the listed errors are fixed.
-
-## Play the template
-
-Standalone scenario:
+Then open:
 
 ```text
-Singleplayer -> Custom Scenarios -> Template Scenario -> Play
+Singleplayer -> Custom Scenarios
 ```
 
-Campaign:
+or:
 
 ```text
-Singleplayer -> Custom Campaigns -> Template Campaign -> Play
+Singleplayer -> Custom Campaigns
 ```
 
+## Common install mistake
+
+Do not create this structure:
+
+```text
+Documents/War Pawns/Mods/MyMod/MyMod/manifest.json
+```
+
+The correct structure is:
+
+```text
+Documents/War Pawns/Mods/MyMod/manifest.json
+```

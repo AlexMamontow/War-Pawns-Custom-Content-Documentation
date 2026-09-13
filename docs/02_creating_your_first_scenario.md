@@ -1,8 +1,14 @@
-# 02 — Creating your first scenario
+# Creating your first standalone scenario
 
-Start from the working standalone template. Do not write a `.scenario` file from scratch for your first mod.
+Start from `templates/WarPawns_TemplateScenario`.
 
-## Step 1 — Copy the template
+The safest workflow is:
+
+```text
+copy template -> run it unchanged -> edit one thing -> run again
+```
+
+## 1. Copy and rename the template folder
 
 Copy:
 
@@ -10,110 +16,148 @@ Copy:
 templates/WarPawns_TemplateScenario
 ```
 
-into:
+to:
 
 ```text
-Documents/War Pawns/Mods/
+Documents/War Pawns/Mods/MyFirstScenario
 ```
 
-Then rename the folder to something unique, for example:
+## 2. Open the main files
+
+You will edit these files most often:
 
 ```text
-Documents/War Pawns/Mods/My_First_Scenario
+MyFirstScenario/manifest.json
+MyFirstScenario/scenarios/template_scenario.scenario
+MyFirstScenario/localization/en.json
 ```
 
-## Step 2 — Rename the mod ID
+## 3. Rename the mod ID
 
-Open:
-
-```text
-manifest.json
-```
+Open `manifest.json`.
 
 Change:
 
 ```json
-"id": "template_standalone_scenario_mod"
+"id": "template_scenario_mod"
 ```
 
 to something unique:
 
 ```json
-"id": "my_first_scenario_mod"
+"id": "my_first_scenario"
 ```
 
-Also update the visible title/description keys if you want:
+Use lowercase letters, numbers, and underscores. Do not use spaces.
+
+## 4. Rename the scenario ID
+
+Open `scenarios/template_scenario.scenario`.
+
+Change:
 
 ```json
-"titleKey": "my_first_scenario_mod.title",
-"descriptionKey": "my_first_scenario_mod.description"
-```
-
-## Step 3 — Rename the scenario ID
-
-In `manifest.json`, change:
-
-```json
-"scenarioId": "template_standalone_scenario_mod.scenario_01"
+"scenarioId": "template_scenario_mod.template_scenario"
 ```
 
 to:
 
 ```json
-"scenarioId": "my_first_scenario_mod.scenario_01"
+"scenarioId": "my_first_scenario.main"
 ```
 
-Now open:
-
-```text
-scenarios/template_scenario.scenario
-```
-
-Change the same field there:
+Then return to `manifest.json` and make sure `scenarioId` matches:
 
 ```json
-"scenarioId": "my_first_scenario_mod.scenario_01"
+"scenarioId": "my_first_scenario.main"
 ```
 
-The `scenarioId` in `manifest.json` and the `.scenario` file must match.
+If these two IDs do not match, the mod can become invalid.
 
-## Step 4 — Update visible text
+## 5. Change the visible title and description
 
-Open:
+Open `localization/en.json`.
 
-```text
-localization/en.json
-```
+Change the text values for your title and description keys.
 
-Add or update the text keys used by the manifest:
+The visible title comes from `titleKey` in `manifest.json`.
+
+Example:
 
 ```json
 {
-  "key": "my_first_scenario_mod.title",
+  "key": "my_first_scenario.title",
   "path": "My First Scenario"
-},
-{
-  "key": "my_first_scenario_mod.description",
-  "path": "A simple custom scenario for War Pawns."
 }
 ```
 
-The game shows text through localization keys. If a key is missing, the UI may show the raw key.
+## 6. Choose a map
 
-## Step 5 — Test before changing gameplay
+Every scenario needs a map.
 
-Launch War Pawns.
+For a first scenario, use a built-in map ID:
 
-Open:
-
-```text
-Mods
+```json
+"map": {
+  "id": "afccd13f3a754d49aa010c63dc297084"
+}
 ```
 
-Expected status:
+This is the Ardennes map.
+
+Do not invent map IDs. If you use your own `.map` file, use `path` instead:
+
+```json
+"map": {
+  "path": "maps/my_map.map"
+}
+```
+
+Full map guide: [05_using_maps.md](05_using_maps.md)
+
+Built-in map IDs: [reference/BUILT_IN_MAPS.md](reference/BUILT_IN_MAPS.md)
+
+## 7. Change starting units
+
+Starting units are usually in `initialUnits`.
+
+Example unit:
+
+```json
+{
+  "ownerPlayerId": 0,
+  "unitDataId": 2,
+  "position": { "x": 2, "y": -12, "z": 10 },
+  "personnel": 1.0,
+  "experience": 0
+}
+```
+
+Important:
+
+- `ownerPlayerId` must exist in `players`.
+- `unitDataId` is the unit index for that player's nation.
+- `position` must be a valid cube coordinate on the selected map.
+- Cube coordinates usually follow `x + y + z = 0`.
+
+Useful references:
+
+- Units: [reference/UNITS.md](reference/UNITS.md)
+- Coordinates: [reference/COORDINATES.md](reference/COORDINATES.md)
+- Standard coordinates CSV: [reference/standard_map_coordinates.csv](reference/standard_map_coordinates.csv)
+
+## 8. Test in game
+
+Open War Pawns:
 
 ```text
-Valid
+Mods -> select your mod
+```
+
+Expected:
+
+```text
+Status: Valid
 ```
 
 Then open:
@@ -122,31 +166,16 @@ Then open:
 Singleplayer -> Custom Scenarios
 ```
 
-The scenario should appear with your new title.
+If `Play` is disabled, open [TROUBLESHOOTING.md](TROUBLESHOOTING.md).
 
-## Step 6 — Make one safe gameplay edit
+## 9. Make only one change at a time
 
-Good first edits:
+Recommended first edits:
 
-- change `startingResources`
-- move the enemy officer to another valid coordinate
-- change popup text in `localization/en.json`
-- change the highlighted zone
+1. Change title and description.
+2. Move one enemy unit to another valid coordinate.
+3. Change player starting resources.
+4. Change the win condition.
+5. Add a popup.
 
-Example: change player starting resources:
-
-```json
-"startingResources": 10
-```
-
-Test again after each change.
-
-## Step 7 — Use recipes for common logic
-
-Useful next steps:
-
-- [Win when all enemies are destroyed](recipes/win_when_enemies_destroyed.md)
-- [Spawn reinforcements](recipes/spawn_reinforcements.md)
-- [Trigger a popup when a unit enters a zone](recipes/trigger_popup_when_unit_enters_zone.md)
-- [Give or take resources](recipes/give_or_take_resources.md)
-
+Use [recipes](recipes/) for copy-paste examples.

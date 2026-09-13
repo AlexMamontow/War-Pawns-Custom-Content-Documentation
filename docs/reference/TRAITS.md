@@ -1,16 +1,31 @@
 # Trait IDs
 
-Use these `traitId` values in custom scenario payloads, for example in `update_units`, `modify_unit_traits`, `addTraitIds`, `removeTraitIds`, `traitIds`, and `availableTraitIds`.
+Use these IDs when a scenario payload asks for `traitIds`, `addTraitIds`, `removeTraitIds`, or officer promotion trait IDs.
 
-The ID is the element index in `TraitsConfig.Items`.
+Example:
+
+```json
+{
+  "type": "SendCommand",
+  "commandId": "modify_unit_traits",
+  "payload": "{"targets":{"aliveOnly":true,"teamIds":[0]},"addTraitIds":[68]}"
+}
+```
+
+Important notes:
+
+- `traitId` is the index in the game's `TraitsConfig.Items` list.
+- The current public reference contains IDs `0` through `75`.
+- IDs are numeric. Do not write trait names inside scenario payloads unless the payload explicitly says it supports names.
+- Some traits grant unit actions. Those are still referenced by `traitId`; the actions themselves are listed separately in [UNIT_ACTIONS.md](UNIT_ACTIONS.md).
 
 | traitId | Name | Type |
-|---:|---|---|
+| ---: | --- | --- |
 | 0 | `NoneTrait` | None Trait |
 | 1 | `LightCover` | Passive Combat Bonus Trait |
 | 2 | `FortifiedPosition` | Passive Combat Bonus Trait |
 | 3 | `WireFence` | Passive Regular Bonus Trait |
-| 4 | `Hedghogs` | Passive Regular Bonus Trait |
+| 4 | `Hedgehogs` | Passive Regular Bonus Trait |
 | 5 | `Landmines` | Passive Regular Bonus Trait |
 | 6 | `ArtillerySchool` | Global Regular Bonus Trait |
 | 7 | `AssaultRifles` | Passive Combat Bonus Trait |
@@ -35,7 +50,7 @@ The ID is the element index in `TraitsConfig.Items`.
 | 26 | `Machinegun` | Passive Combat Bonus Trait |
 | 27 | `MotivationSpeech` | Positional Combat Radius Trait |
 | 28 | `Panzershreck` | Passive Combat Bonus Trait |
-| 29 | `Raider` | Passive Combat Bonus Trait |
+| 29 | `Raider` | Combat Bonus Trait |
 | 30 | `ReconTraining` | Global Regular Bonus Trait |
 | 31 | `SemiAutoRifles` | Passive Combat Bonus Trait |
 | 32 | `ImprovedOptics` | Global Regular Bonus Trait |
@@ -43,7 +58,7 @@ The ID is the element index in `TraitsConfig.Items`.
 | 34 | `SniperRifle` | Passive Combat Bonus Trait |
 | 35 | `SpecialForces` | Global Regular Bonus Trait |
 | 36 | `SpecialTraining` | Passive Combat Bonus Trait |
-| 37 | `TankDestoryer` | Passive Combat Bonus Trait |
+| 37 | `TankDestroyer` | Passive Combat Bonus Trait |
 | 38 | `SkilledCommander` | Passive Regular Bonus Trait |
 | 39 | `Flamethrower` | Ignore Opponent Combat Traits |
 | 40 | `OffensiveDoctrine` | Global Combat Bonus Trait |
@@ -71,7 +86,14 @@ The ID is the element index in `TraitsConfig.Items`.
 | 62 | `SabotageInfDebuffTrait` | Passive Regular Bonus Trait |
 | 63 | `IntensiveSpecialTraining` | Passive Combat Bonus Trait |
 | 64 | `ImprovedSniperRifle` | Passive Combat Bonus Trait |
-| 65 | `EncouragedByOfficer` | Passive Combat Bonus Trait |
+| 65 | `EncouragedByOfficer` | Passive Regular Bonus Trait |
 | 66 | `CommanderPresence` | Positional Regular Radius Trait |
 | 67 | `ReconDisruption` | Positional Regular Radius Trait |
 | 68 | `EncourageGrantingTrait` | Granting Action Trait |
+| 69 | `RecruitmentGrantingTrait` | Granting Action Trait |
+| 70 | `FieldCampGrantingTrait` | Granting Action Trait |
+| 71 | `MovementDisruptionGrantingTrait` | Granting Action Trait |
+| 72 | `MovementDisruptionDebuffTrait` | Passive Regular Bonus Trait |
+| 73 | `MovementBoostGrantingTrait` | Granting Action Trait |
+| 74 | `MovementBoostTrait` | Passive Regular Bonus Trait |
+| 75 | `MovementBoostTrait` | Passive Regular Bonus Trait |

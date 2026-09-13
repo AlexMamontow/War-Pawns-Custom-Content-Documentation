@@ -1,4 +1,4 @@
-actionId,assetName,actionClass
+actionId,name,type
 0,MovementAction,Movement Action
 1,AttackAction,Attack Action
 2,FillNonInfantryPersonnelAction,Fill Personnel Action
@@ -29,3 +29,8 @@ actionId,assetName,actionClass
 27,GuardAllyInfAction,Granting Trait Action
 28,GuardAllyTankAction,Granting Trait Action
 29,OfficerEncourageAction,Granting Trait Action
+30,RecruitmentAction,Spawn Unit Action
+31,FillSelfPersonnelAction,Fill Personnel Action
+32,PlaceFieldCamp,Change Detail And Trait Action
+33,MovementDisruptionAction,Granting Trait Action
+34,MovementBoostAction,Granting Trait Action

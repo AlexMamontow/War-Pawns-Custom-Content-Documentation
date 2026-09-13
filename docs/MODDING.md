@@ -1,5 +1,8 @@
 # War Pawns custom content format reference
 
+> New to War Pawns custom content? Start with [../START_HERE.md](../START_HERE.md). This file is the full technical reference, not the beginner walkthrough.
+
+
 This is the full format reference for custom scenarios and campaigns. If you are new, start with [START_HERE.md](../START_HERE.md), then use the recipes in `docs/recipes/`.
 
 ---

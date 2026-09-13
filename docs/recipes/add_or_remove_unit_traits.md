@@ -1,8 +1,10 @@
 # Add or remove unit traits
 
-Use `modify_unit_traits`.
+Use `modify_unit_traits` when you want to add, remove, or override traits on selected units.
 
-Add trait `68` to all living allied infantry:
+This example adds `EncourageGrantingTrait` to all living allied infantry.
+
+`EncourageGrantingTrait` is `traitId` 68.
 
 ```json
 {
@@ -12,15 +14,27 @@ Add trait `68` to all living allied infantry:
 }
 ```
 
-Remove trait `4` from specific units:
+Remove a trait:
 
 ```json
 {
   "type": "SendCommand",
   "commandId": "modify_unit_traits",
-  "payload": "{"targets":{"unitIds":[10,11]},"removeTraitIds":[4]}"
+  "payload": "{"targets":{"aliveOnly":true,"teamIds":[1]},"removeTraitIds":[72]}"
 }
 ```
 
-Trait IDs are listed in `docs/reference/TRAITS.md`.
+Useful new traits:
 
+```text
+68 = EncourageGrantingTrait
+69 = RecruitmentGrantingTrait
+70 = FieldCampGrantingTrait
+71 = MovementDisruptionGrantingTrait
+72 = MovementDisruptionDebuffTrait
+73 = MovementBoostGrantingTrait
+74 = MovementBoostTrait
+75 = MovementBoostTrait
+```
+
+Full list: [../reference/TRAITS.md](../reference/TRAITS.md)

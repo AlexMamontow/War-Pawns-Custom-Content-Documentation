@@ -1,51 +1,53 @@
-# War Pawns Custom Content Documentation
+# War Pawns Custom Content Starter Kit
 
-Create and share custom scenarios and campaigns for **War Pawns**.
+Create custom scenarios and campaigns for **War Pawns**.
 
-You do **not** need Unity. You only need:
+You do **not** need Unity. You only need the game, a text editor, and one of the templates in this repository.
 
-- War Pawns installed
-- a text editor such as VS Code, Notepad++, or any JSON-friendly editor
-- one of the working templates in this repository
+## Start with this goal
 
-## New to War Pawns modding?
+Before editing anything, get a working template running in the game.
 
-Start here: **[START_HERE.md](START_HERE.md)**
-
-That guide shows how to copy a ready-made template into the game and run it without editing anything first.
-
-## Fast path
-
-1. Download this repository as ZIP.
-2. Copy `templates/WarPawns_TemplateScenario` to:
+1. Click `Code -> Download ZIP` on GitHub.
+2. Unzip the repository.
+3. Copy this folder:
 
    ```text
-   Documents/War Pawns/Mods/WarPawns_TemplateScenario
+   templates/WarPawns_TemplateScenario
    ```
 
-3. Make sure the final path is:
+   to:
+
+   ```text
+   Documents/War Pawns/Mods/
+   ```
+
+4. The final path must be:
 
    ```text
    Documents/War Pawns/Mods/WarPawns_TemplateScenario/manifest.json
    ```
 
-4. Launch War Pawns.
-5. Open `Mods` and check that the template is `Valid`.
-6. Go to `Singleplayer -> Custom Scenarios`.
-7. Select `Template Scenario` and press `Play`.
+5. Launch War Pawns.
+6. Open `Mods` and check that the template is `Valid`.
+7. Open `Singleplayer -> Custom Scenarios` and press `Play`.
 
-## What should I read next?
+Full walkthrough: [START_HERE.md](START_HERE.md)
 
-| Goal | Read this |
+## What do you want to do?
+
+| Goal | Open this |
 | --- | --- |
-| Run a template for the first time | [START_HERE.md](START_HERE.md) |
+| Run your first template | [START_HERE.md](START_HERE.md) |
 | Install a template correctly | [docs/01_installing_a_template.md](docs/01_installing_a_template.md) |
-| Make your first scenario | [docs/02_creating_your_first_scenario.md](docs/02_creating_your_first_scenario.md) |
+| Make your first standalone scenario | [docs/02_creating_your_first_scenario.md](docs/02_creating_your_first_scenario.md) |
 | Make a two-mission campaign | [docs/03_creating_your_first_campaign.md](docs/03_creating_your_first_campaign.md) |
-| Publish/update a mod on Steam Workshop | [docs/04_publishing_to_steam_workshop.md](docs/04_publishing_to_steam_workshop.md) |
-| Fix common errors | [docs/TROUBLESHOOTING.md](docs/TROUBLESHOOTING.md) |
-| Copy common scenario logic | [docs/recipes/](docs/recipes/) |
-| Look up map, unit, trait, action, and enum IDs | [docs/reference/](docs/reference/) |
+| Use a built-in map or custom map | [docs/05_using_maps.md](docs/05_using_maps.md) |
+| Understand IDs for units, traits, actions, teams, nations | [docs/06_using_ids.md](docs/06_using_ids.md) |
+| Publish or update on Steam Workshop | [docs/04_publishing_to_steam_workshop.md](docs/04_publishing_to_steam_workshop.md) |
+| Fix common problems | [docs/TROUBLESHOOTING.md](docs/TROUBLESHOOTING.md) |
+| Copy ready-made scenario logic | [docs/recipes/](docs/recipes/) |
+| Look up all technical IDs and schemas | [docs/reference/](docs/reference/) |
 
 ## Templates
 
@@ -54,33 +56,49 @@ That guide shows how to copy a ready-made template into the game and run it with
 | `templates/WarPawns_TemplateScenario` | One standalone custom scenario |
 | `templates/WarPawns_TemplateCampaign` | A campaign with two linked missions |
 
-Always start by copying a template. Writing a `.scenario` file from scratch is possible, but not recommended for your first mod.
+Always start from a template. Writing a `.scenario` file from scratch is possible, but it is not recommended for a first mod.
 
-## Repository layout
+## How a mod folder works
+
+A simple standalone scenario looks like this:
 
 ```text
-README.md
-START_HERE.md
-docs/
-  01_installing_a_template.md
-  02_creating_your_first_scenario.md
-  03_creating_your_first_campaign.md
-  04_publishing_to_steam_workshop.md
-  TROUBLESHOOTING.md
-  recipes/
-  reference/
-templates/
-  WarPawns_TemplateScenario/
-  WarPawns_TemplateCampaign/
+MyMod/
+  manifest.json
+  scenarios/my_scenario.scenario
+  localization/en.json
+  images/preview.png
 ```
 
-## Important rules
+A campaign looks like this:
 
-- One mod folder equals one playable entry: either one standalone scenario or one campaign.
+```text
+MyCampaignMod/
+  manifest.json
+  campaigns/my_campaign.campaign
+  scenarios/mission_01.scenario
+  scenarios/mission_02.scenario
+  localization/en.json
+  images/preview.png
+```
+
+The `manifest.json` file tells the game what this mod is and which file should be loaded first.
+
+## Very important rules
+
 - `manifest.json` must be directly inside the mod folder.
-- JSON does not support comments.
+- One mod folder equals one playable entry: either one standalone scenario or one campaign.
+- JSON files do not support comments.
 - Use globally unique IDs such as `my_mod.mission_01`.
 - Keep `workshopId` empty for a new local mod.
+- For maps, use either a built-in `map.id` or a custom `map.path`, not both.
 - Use `payload`, not `key`, in JSON scenario actions.
 - The Scenario Room turn-time dropdown defaults to no turn timer. Dropdown item `0` means unlimited turn time.
 
+## Where is the full reference?
+
+The beginner guides are in `docs/`.
+
+The technical reference is in `docs/reference/`.
+
+Start with the guides first. Use the reference only when you need a specific map ID, unit ID, trait ID, action ID, enum value, trigger, condition, or payload field.

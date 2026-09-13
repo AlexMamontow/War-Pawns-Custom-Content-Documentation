@@ -1,10 +1,18 @@
 # Start here: run your first custom scenario
 
-This guide shows how to run a working custom scenario template without editing anything.
+This guide shows how to run a working scenario template without editing anything.
 
-Do this first. After the template works in game, you can safely start changing IDs, text, units, objectives, and triggers.
+Do this first. After the template works in game, change one thing at a time.
 
-## 1. Download this repository
+## What you need
+
+- War Pawns installed
+- A text editor such as VS Code, Notepad++, or any JSON-friendly editor
+- This repository downloaded as ZIP
+
+You do not need Unity.
+
+## 1. Download the repository
 
 On GitHub, click:
 
@@ -22,9 +30,9 @@ The local mods folder is:
 Documents/War Pawns/Mods/
 ```
 
-If you do not see this folder, launch War Pawns once, open `Mods`, and use the `Open Folder` button.
+If the folder does not exist, launch War Pawns once, open `Mods`, and press `Open Folder`.
 
-## 3. Copy the standalone scenario template
+## 3. Copy the scenario template
 
 Copy this folder from the repository:
 
@@ -32,21 +40,19 @@ Copy this folder from the repository:
 templates/WarPawns_TemplateScenario
 ```
 
-Paste it here:
+Paste it into:
 
 ```text
 Documents/War Pawns/Mods/
 ```
 
-The final folder should look like this:
+The final path must be:
 
 ```text
 Documents/War Pawns/Mods/WarPawns_TemplateScenario/manifest.json
-Documents/War Pawns/Mods/WarPawns_TemplateScenario/scenarios/template_scenario.scenario
-Documents/War Pawns/Mods/WarPawns_TemplateScenario/localization/en.json
 ```
 
-## 4. Avoid the most common install mistake
+## 4. Check for the most common mistake
 
 Correct:
 
@@ -60,9 +66,9 @@ Wrong:
 Documents/War Pawns/Mods/WarPawns_TemplateScenario/WarPawns_TemplateScenario/manifest.json
 ```
 
-If the mod folder is nested twice, the game will not find it.
+If the folder is nested twice, the game will not find the mod correctly.
 
-## 5. Check the template in game
+## 5. Check the mod in game
 
 Launch War Pawns.
 
@@ -72,19 +78,13 @@ Open:
 Mods
 ```
 
-You should see:
+Select the template. It should show:
 
 ```text
-Template Standalone Scenario
+Status: Valid
 ```
 
-Its status should be:
-
-```text
-Valid
-```
-
-If it is `Invalid`, select the mod and read the validation messages. See [docs/TROUBLESHOOTING.md](docs/TROUBLESHOOTING.md).
+If it is `Invalid`, select the mod and read the validation messages. Then open [docs/TROUBLESHOOTING.md](docs/TROUBLESHOOTING.md).
 
 ## 6. Play the template
 
@@ -106,7 +106,7 @@ Press:
 Play
 ```
 
-The Scenario Room opens before the match starts. You can choose difficulty and turn time there. By default, turn time is unlimited. Dropdown item `0` means no turn timer.
+The Scenario Room opens before the match starts. You can choose difficulty and turn time there. By default, turn time is unlimited.
 
 ## 7. Make your first edit
 
@@ -116,5 +116,12 @@ After the template runs successfully, continue here:
 docs/02_creating_your_first_scenario.md
 ```
 
-Do not start by writing a scenario from scratch. Start from the working template and change one thing at a time.
+Do not start from an empty file. Start from the working template and edit one small thing at a time.
 
+## Quick checklist
+
+Before asking why a mod does not work, check these three things:
+
+- Is `manifest.json` directly inside the mod folder?
+- Does the mod show `Valid` in the `Mods` screen?
+- Does the scenario use a correct built-in `map.id` or a real custom `map.path`?

@@ -1,43 +1,74 @@
-# 04 — Publishing to Steam Workshop
+# Publishing to Steam Workshop
 
-Use the in-game `Mods` screen to publish or update local custom content.
+Use this after your mod works locally.
 
 ## Before publishing
 
-Check:
-
-- the mod status is `Valid`
-- `manifest.json` has a unique `id`
-- `scenarioId` or `campaignId` is unique
-- `workshopId` is empty for a new item
-- preview image exists, if you set `preview`
-- the template/debug test conditions were removed
-
-## Publish a new mod
-
-1. Open War Pawns.
-2. Open `Mods`.
-3. Select your local mod.
-4. Press `Publish`.
-5. After successful publish, the game writes the Steam Workshop item ID into `manifest.json` as `workshopId`.
-
-After this, `Publish` becomes disabled and `Update` becomes available.
-
-## Update an existing Workshop item
-
-If `manifest.json` already has `workshopId`, press:
+Open War Pawns and check:
 
 ```text
-Update
+Mods -> select your mod
 ```
 
-Do not press `Publish` unless you intentionally want a new Workshop item and have cleared `workshopId`.
+The mod should show:
 
-## Visibility
+```text
+Status: Valid
+```
 
-A newly published Workshop item may be hidden/private depending on Steam settings. Open the Workshop page and set visibility as needed.
+Then launch it from:
 
-## Common Steam issues
+```text
+Singleplayer -> Custom Scenarios
+```
 
-See [TROUBLESHOOTING.md](TROUBLESHOOTING.md) for errors such as AccessDenied, InvalidParam, or 0-byte uploaded content.
+or:
 
+```text
+Singleplayer -> Custom Campaigns
+```
+
+Do not publish a mod if the Play button is disabled.
+
+Checklist: [PUBLISHING_CHECKLIST.md](PUBLISHING_CHECKLIST.md)
+
+## First publish
+
+For a new local mod, `workshopId` in `manifest.json` should be empty or missing.
+
+Example:
+
+```json
+"workshopId": ""
+```
+
+Open the `Mods` screen, select the mod, and press `Publish`.
+
+After successful publishing, the game writes the Steam Workshop item ID into `manifest.json`.
+
+## Updating an existing Workshop item
+
+If `workshopId` exists, the `Update` button is used instead of `Publish`.
+
+Example:
+
+```json
+"workshopId": "1234567890"
+```
+
+Make sure this ID belongs to the Workshop item you want to update.
+
+## Validation errors
+
+Invalid mods should not be published.
+
+Fix validation errors first, then publish again.
+
+Common blockers:
+
+- wrong map reference
+- missing entry file
+- invalid JSON syntax
+- scenario ID mismatch
+- campaign mission path mismatch
+- missing scenario graph

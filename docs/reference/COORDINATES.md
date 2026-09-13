@@ -1,5 +1,8 @@
 # Coordinates
 
+For choosing a map, see [../05_using_maps.md](../05_using_maps.md).
+
+
 War Pawns uses cube hex coordinates in JSON:
 
 ```json
