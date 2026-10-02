@@ -75,3 +75,5 @@ traitId,name,type
 73,MovementBoostGrantingTrait,Granting Action Trait
 74,MovementBoostTrait,Passive Regular Bonus Trait
 75,MovementBoostTrait,Passive Regular Bonus Trait
+76,Supplies,Positional Regular Radius Trait
+77,LightArmor,Passive Combat Bonus Trait

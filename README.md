@@ -49,6 +49,20 @@ Full walkthrough: [START_HERE.md](START_HERE.md)
 | Copy ready-made scenario logic | [docs/recipes/](docs/recipes/) |
 | Look up all technical IDs and schemas | [docs/reference/](docs/reference/) |
 
+
+## Recommended beginner workflow
+
+Do not try to build a full campaign immediately. Use this order:
+
+1. Run the unchanged scenario template.
+2. Rename the mod and scenario IDs.
+3. Change the map only after the template still works.
+4. Change one starting unit.
+5. Change one win condition.
+6. Only then add popups, reinforcements, traits, or campaign progression.
+
+After every change, open `Mods` and confirm the mod is still `Valid`, then open `Custom Scenarios` and confirm `Play` is active.
+
 ## Templates
 
 | Template | Use it for |

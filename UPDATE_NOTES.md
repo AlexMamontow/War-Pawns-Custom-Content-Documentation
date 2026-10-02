@@ -1,24 +1,22 @@
 # Update notes
 
-This package reorganizes the repository as a beginner-friendly modding starter kit while keeping the technical reference.
+## 2026-10-02 reference update
 
-## Updated in this version
+Updated repository reference files for the latest visible game data:
 
-- `README.md` rewritten around a simple first goal: download, copy template, run it in game.
-- `START_HERE.md` expanded with clearer install checks.
-- Added [docs/05_using_maps.md](docs/05_using_maps.md) because map setup is a common reason for disabled Play buttons.
-- Added [docs/06_using_ids.md](docs/06_using_ids.md) to explain `playerId`, `teamId`, `nationId`, `unitDataId`, `traitId`, and `actionId` in beginner terms.
-- Updated [docs/TROUBLESHOOTING.md](docs/TROUBLESHOOTING.md), especially the `Play button is disabled` case.
-- Updated [docs/reference/TRAITS.md](docs/reference/TRAITS.md) and `traits.csv` to IDs `0-75`.
-- Updated [docs/reference/UNIT_ACTIONS.md](docs/reference/UNIT_ACTIONS.md) and `unit_actions.csv` to IDs `0-34`.
-- Updated template README files with clearer install and first-edit instructions.
+- Added new traits to the reference list: `Supplies` and `LightArmor`.
+- Confirmed unit action list still ends at `MovementBoostAction` (`actionId: 34`) in the provided screenshot.
+- Added new faction field artillery units at `unitDataId: 20`:
+  - Germany: `FieldArtillery_G`
+  - USA: `FieldArtillery_USA`
+  - USSR: `FieldArtillery_USSR`
+- Added `docs/reference/units.csv` for easier lookup.
+- Improved beginner-facing guidance in `README.md`, `docs/06_using_ids.md`, and `docs/TROUBLESHOOTING.md`.
 
-## Information preserved
+## Notes for maintainers
 
-The previous full documentation is still available in:
+When the game data changes, update both the Markdown tables and their CSV copies:
 
-```text
-docs/archive/
-```
-
-The technical reference files in `docs/reference/` are preserved and updated rather than removed.
+- `docs/reference/TRAITS.md` and `docs/reference/traits.csv`
+- `docs/reference/UNIT_ACTIONS.md` and `docs/reference/unit_actions.csv`
+- `docs/reference/UNITS.md` and `docs/reference/units.csv`

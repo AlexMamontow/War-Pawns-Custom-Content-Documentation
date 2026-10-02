@@ -16,7 +16,8 @@ If you are new, start here instead:
 | [COORDINATES.md](COORDINATES.md) | Cube coordinate rules and standard coordinate notes |
 | [standard_map_coordinates.csv](standard_map_coordinates.csv) | Known usable coordinates for standard maps |
 | [UNITS.md](UNITS.md) | `unitDataId` values by nation |
-| [TRAITS.md](TRAITS.md) | `traitId` values `0-75` |
+| [units.csv](units.csv) | Same unit list in CSV format |
+| [TRAITS.md](TRAITS.md) | `traitId` values `0-77` |
 | [UNIT_ACTIONS.md](UNIT_ACTIONS.md) | unit `actionId` values `0-34` |
 | [ENUMS.md](ENUMS.md) | teams, nations, unit types, control types |
 | [PAYLOADS.md](PAYLOADS.md) | common `SendCommand` payload fields |

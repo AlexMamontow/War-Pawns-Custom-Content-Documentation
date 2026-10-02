@@ -1,23 +1,19 @@
 # Trait IDs
-
 Use these IDs when a scenario payload asks for `traitIds`, `addTraitIds`, `removeTraitIds`, or officer promotion trait IDs.
-
 Example:
-
 ```json
 {
   "type": "SendCommand",
   "commandId": "modify_unit_traits",
-  "payload": "{"targets":{"aliveOnly":true,"teamIds":[0]},"addTraitIds":[68]}"
+  "payload": "{\"targets\":{\"aliveOnly\":true,\"teamIds\":[0]},\"addTraitIds\":[77]}"
 }
 ```
-
 Important notes:
-
 - `traitId` is the index in the game's `TraitsConfig.Items` list.
-- The current public reference contains IDs `0` through `75`.
+- The current public reference contains IDs `0` through `77`.
 - IDs are numeric. Do not write trait names inside scenario payloads unless the payload explicitly says it supports names.
 - Some traits grant unit actions. Those are still referenced by `traitId`; the actions themselves are listed separately in [UNIT_ACTIONS.md](UNIT_ACTIONS.md).
+- Latest visible additions: `Supplies` (`traitId: 76`) and `LightArmor` (`traitId: 77`).
 
 | traitId | Name | Type |
 | ---: | --- | --- |
@@ -97,3 +93,5 @@ Important notes:
 | 73 | `MovementBoostGrantingTrait` | Granting Action Trait |
 | 74 | `MovementBoostTrait` | Passive Regular Bonus Trait |
 | 75 | `MovementBoostTrait` | Passive Regular Bonus Trait |
+| 76 | `Supplies` | Positional Regular Radius Trait |
+| 77 | `LightArmor` | Passive Combat Bonus Trait |

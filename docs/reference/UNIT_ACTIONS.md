@@ -8,10 +8,12 @@ Use this page only when a payload, trait, or future documentation explicitly ref
 
 Important distinction:
 
-- **Unit actions** are actions a unit can perform in battle, such as movement, attack, sabotage, recruitment, or boost actions.
+- **Unit actions** are actions a unit can perform in battle, such as movement, attack, sabotage, recruitment, field camp, movement disruption, or movement boost actions.
 - **Scenario actions** are scenario scripting actions such as `ShowRegularPopup`, `SendCommand`, `HighlightZone`, or `EndMission`. Scenario actions are documented in [SCENARIO_REFERENCE.md](SCENARIO_REFERENCE.md).
 
 The current public reference contains action IDs `0` through `34`.
+
+The latest screenshot still ends at `MovementBoostAction` (`actionId: 34`), so no additional unit actions were added after the previous action-list update.
 
 | actionId | Name | Type |
 | ---: | --- | --- |
