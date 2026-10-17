@@ -1,19 +1,14 @@
 # Unit action IDs
 
-This page lists actions from the game's `ActionsConfig.Items` list.
+Unit `actionId` is the **index** in `ActionsConfig.Items`. This reference is mostly for advanced modders and for checking the game's action catalog.
 
-Most custom scenario authors do **not** need these IDs for basic scenarios. Start with the scenario recipes first.
+**Do not confuse:**
+- **Unit actions**: battle commands a unit can perform (`MovementAction`, `AttackAction`, `ATGunStrike`).
+- **Scenario actions**: entries in a `.scenario` graph (`SendCommand`, `EndMission`, `ShowRegularPopup`). See [SCENARIO_REFERENCE.md](SCENARIO_REFERENCE.md).
 
-Use this page only when a payload, trait, or future documentation explicitly refers to a unit `actionId`.
+Adding a unit to a scenario uses `unitDataId`, **not** `actionId`. See [UNITS.md](UNITS.md).
 
-Important distinction:
-
-- **Unit actions** are actions a unit can perform in battle, such as movement, attack, sabotage, recruitment, field camp, movement disruption, or movement boost actions.
-- **Scenario actions** are scenario scripting actions such as `ShowRegularPopup`, `SendCommand`, `HighlightZone`, or `EndMission`. Scenario actions are documented in [SCENARIO_REFERENCE.md](SCENARIO_REFERENCE.md).
-
-The current public reference contains action IDs `0` through `34`.
-
-The latest screenshot still ends at `MovementBoostAction` (`actionId: 34`), so no additional unit actions were added after the previous action-list update.
+## Full `ActionsConfig.Items` list
 
 | actionId | Name | Type |
 | ---: | --- | --- |
@@ -52,3 +47,12 @@ The latest screenshot still ends at `MovementBoostAction` (`actionId: 34`), so n
 | 32 | `PlaceFieldCamp` | Change Detail And Trait Action |
 | 33 | `MovementDisruptionAction` | Granting Trait Action |
 | 34 | `MovementBoostAction` | Granting Trait Action |
+| 35 | `ATGunStrike` | Distant Attack Action |
+
+## New unit action (2026-10-17)
+
+`35` — `ATGunStrike` (`Distant Attack Action`).
+
+This is a **unit action**, not an additional `ActionType` or scenario `commandId`. The screenshot shows its name/index/category, but it does not establish its range, damage, or eligibility rules.
+
+[Download machine-readable action list (CSV)](unit_actions.csv)

@@ -1,19 +1,26 @@
-# Trait IDs
-Use these IDs when a scenario payload asks for `traitIds`, `addTraitIds`, `removeTraitIds`, or officer promotion trait IDs.
-Example:
+# Trait IDs (game config reference)
+
+`traitId` is the **numeric index** in `TraitsConfig.Items`, not a text name. Use it in `traitIds`, `addTraitIds`, `removeTraitIds`, and officer-trait configuration when the relevant scenario field expects an ID.
+
+If this is your first scenario, start with [Using IDs](../06_using_ids.md) and [Add or remove traits](../recipes/add_or_remove_unit_traits.md) before using the table below.
+
+Example: grant the `QuickLearners` trait (`traitId: 80`) to living units on team 0. In the `.scenario` file, `payload` is a JSON-encoded **string**, not a nested object:
+
 ```json
 {
   "type": "SendCommand",
   "commandId": "modify_unit_traits",
-  "payload": "{\"targets\":{\"aliveOnly\":true,\"teamIds\":[0]},\"addTraitIds\":[77]}"
+  "payload": "{\"targets\":{\"allUnits\":true,\"aliveOnly\":true,\"teamIds\":[0]},\"addTraitIds\":[80]}"
 }
 ```
-Important notes:
-- `traitId` is the index in the game's `TraitsConfig.Items` list.
-- The current public reference contains IDs `0` through `77`.
-- IDs are numeric. Do not write trait names inside scenario payloads unless the payload explicitly says it supports names.
-- Some traits grant unit actions. Those are still referenced by `traitId`; the actions themselves are listed separately in [UNIT_ACTIONS.md](UNIT_ACTIONS.md).
-- Latest visible additions: `Supplies` (`traitId: 76`) and `LightArmor` (`traitId: 77`).
+
+**Important distinctions:**
+- Trait IDs and unit action IDs are different. Some traits *grant* a unit action, but the trait is still selected by `traitId`.
+- The unit action reference is [UNIT_ACTIONS.md](UNIT_ACTIONS.md); scenario scripting actions such as `SendCommand` belong to [SCENARIO_REFERENCE.md](SCENARIO_REFERENCE.md).
+- Current screenshots confirm the new traits `78–82` and the order of `55–77`.
+- **ID 54 needs confirmation.** It was not visible in the supplied updated screenshots. The old documentation listed `SabotageDebuffTrait` at 54, but the newer screenshots unambiguously show it at **55**. Rather than publish an incorrect ID, this one entry is marked **UNVERIFIED** until a screenshot of `TraitsConfig.Items` around index 54 is supplied. All other rows are retained from earlier reference material or confirmed screenshots.
+
+## Full ID list
 
 | traitId | Name | Type |
 | ---: | --- | --- |
@@ -71,27 +78,46 @@ Important notes:
 | 51 | `DefenseExpertise` | Positional Regular Radius Trait |
 | 52 | `ReconAreaTrait` | Granting Action Trait |
 | 53 | `SabotageGrantingTrait` | Granting Action Trait |
-| 54 | `SabotageDebuffTrait` | Passive Regular Bonus Trait |
-| 55 | `SuppressionFire` | Positional Combat Radius Trait |
-| 56 | `Encouraged` | Passive Combat Bonus Trait |
-| 57 | `Deadly` | Passive Combat Bonus Trait |
-| 58 | `Sturdy` | Passive Combat Bonus Trait |
-| 59 | `TankVeteran` | Passive Combat Bonus Trait |
-| 60 | `HeavyTankDestroyer` | Passive Combat Bonus Trait |
-| 61 | `Guarded` | Passive Combat Bonus Trait |
-| 62 | `SabotageInfDebuffTrait` | Passive Regular Bonus Trait |
-| 63 | `IntensiveSpecialTraining` | Passive Combat Bonus Trait |
-| 64 | `ImprovedSniperRifle` | Passive Combat Bonus Trait |
-| 65 | `EncouragedByOfficer` | Passive Regular Bonus Trait |
-| 66 | `CommanderPresence` | Positional Regular Radius Trait |
-| 67 | `ReconDisruption` | Positional Regular Radius Trait |
-| 68 | `EncourageGrantingTrait` | Granting Action Trait |
-| 69 | `RecruitmentGrantingTrait` | Granting Action Trait |
-| 70 | `FieldCampGrantingTrait` | Granting Action Trait |
-| 71 | `MovementDisruptionGrantingTrait` | Granting Action Trait |
-| 72 | `MovementDisruptionDebuffTrait` | Passive Regular Bonus Trait |
-| 73 | `MovementBoostGrantingTrait` | Granting Action Trait |
-| 74 | `MovementBoostTrait` | Passive Regular Bonus Trait |
+| 54 | **Not verified — see note above** | Needs verification |
+| 55 | `SabotageDebuffTrait` | Passive Regular Bonus Trait |
+| 56 | `SuppressionFire` | Positional Combat Radius Trait |
+| 57 | `Encouraged` | Passive Combat Bonus Trait |
+| 58 | `Deadly` | Passive Combat Bonus Trait |
+| 59 | `Sturdy` | Passive Combat Bonus Trait |
+| 60 | `TankVeteran` | Passive Combat Bonus Trait |
+| 61 | `HeavyTankDestroyer` | Passive Combat Bonus Trait |
+| 62 | `Guarded` | Passive Combat Bonus Trait |
+| 63 | `SabotageInfDebuffTrait` | Passive Regular Bonus Trait |
+| 64 | `IntensiveSpecialTraining` | Passive Combat Bonus Trait |
+| 65 | `ImprovedSniperRifle` | Passive Combat Bonus Trait |
+| 66 | `EncouragedByOfficer` | Passive Regular Bonus Trait |
+| 67 | `CommanderPresence` | Positional Regular Radius Trait |
+| 68 | `ReconDisruption` | Positional Regular Radius Trait |
+| 69 | `EncourageGrantingTrait` | Granting Action Trait |
+| 70 | `RecruitmentGrantingTrait` | Granting Action Trait |
+| 71 | `FieldCampGrantingTrait` | Granting Action Trait |
+| 72 | `MovementDisruptionGrantingTrait` | Granting Action Trait |
+| 73 | `MovementDisruptionDebuffTrait` | Passive Regular Bonus Trait |
+| 74 | `MovementBoostGrantingTrait` | Granting Action Trait |
 | 75 | `MovementBoostTrait` | Passive Regular Bonus Trait |
 | 76 | `Supplies` | Positional Regular Radius Trait |
 | 77 | `LightArmor` | Passive Combat Bonus Trait |
+| 78 | `HeavyATGun` | Passive Combat Bonus Trait |
+| 79 | `ATGun` | Passive Combat Bonus Trait |
+| 80 | `QuickLearners` | Experience Multiplier Trait |
+| 81 | `Quartermaster` | Resource Per Flag Bonus Trait |
+| 82 | `ScavengerTrait` | Scavenger Trait |
+
+## Newly added traits (2026-10-17)
+
+| traitId | Trait | Category shown in Unity |
+| ---: | --- | --- |
+| 78 | `HeavyATGun` | Passive Combat Bonus Trait |
+| 79 | `ATGun` | Passive Combat Bonus Trait |
+| 80 | `QuickLearners` | Experience Multiplier Trait |
+| 81 | `Quartermaster` | Resource Per Flag Bonus Trait |
+| 82 | `ScavengerTrait` | Scavenger Trait |
+
+These names and indices are taken from the `TraitsConfig.Items` screenshot. The screenshot identifies the trait categories but **does not define exact gameplay numbers or restrictions**; check the in-game traits or game config for those values.
+
+[Download machine-readable trait list (CSV)](traits.csv)

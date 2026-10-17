@@ -20,6 +20,7 @@ nationId,nation,unitDataId,unit
 0,Germany,18,Tiger1
 0,Germany,19,Hummel
 0,Germany,20,FieldArtillery_G
+0,Germany,21,Pak40_G
 3,USA,0,Officer
 3,USA,1,Rookies
 3,USA,2,Riflemen
@@ -41,6 +42,7 @@ nationId,nation,unitDataId,unit
 3,USA,18,M26Pershing
 3,USA,19,M7Priest
 3,USA,20,FieldArtillery_USA
+3,USA,21,M1ATGun
 1,USSR,0,Officer
 1,USSR,1,Partisans
 1,USSR,2,Riflemen
@@ -62,3 +64,4 @@ nationId,nation,unitDataId,unit
 1,USSR,18,ISU152
 1,USSR,19,SupplyTruckHeavy
 1,USSR,20,FieldArtillery_USSR
+1,USSR,21,Zis3

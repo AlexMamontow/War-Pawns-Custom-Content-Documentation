@@ -15,10 +15,10 @@ If you are new, start here instead:
 | [BUILT_IN_MAPS.md](BUILT_IN_MAPS.md) | Built-in map IDs that can be used in `map.id` |
 | [COORDINATES.md](COORDINATES.md) | Cube coordinate rules and standard coordinate notes |
 | [standard_map_coordinates.csv](standard_map_coordinates.csv) | Known usable coordinates for standard maps |
-| [UNITS.md](UNITS.md) | `unitDataId` values by nation |
-| [units.csv](units.csv) | Same unit list in CSV format |
-| [TRAITS.md](TRAITS.md) | `traitId` values `0-77` |
-| [UNIT_ACTIONS.md](UNIT_ACTIONS.md) | unit `actionId` values `0-34` |
+| [UNITS.md](UNITS.md) | `unitDataId` values `0-21` by nation |
+| [units.csv](units.csv) | Same unit list in CSV format (22 units per documented nation) |
+| [TRAITS.md](TRAITS.md) | `traitId` values `0-82` (index 54 unverified) |
+| [UNIT_ACTIONS.md](UNIT_ACTIONS.md) | unit `actionId` values `0-35` |
 | [ENUMS.md](ENUMS.md) | teams, nations, unit types, control types |
 | [PAYLOADS.md](PAYLOADS.md) | common `SendCommand` payload fields |
 | [SCENARIO_REFERENCE.md](SCENARIO_REFERENCE.md) | scenario triggers, conditions, actions, commands, selectors |
@@ -31,4 +31,4 @@ For a first scenario, you will probably need only:
 - [UNITS.md](UNITS.md)
 - [COORDINATES.md](COORDINATES.md)
 
-Use traits and action IDs later.
+Use traits and action IDs later. See also [Update notes](../../UPDATE_NOTES.md) for new entries.

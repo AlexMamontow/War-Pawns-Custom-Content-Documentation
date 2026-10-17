@@ -181,7 +181,7 @@ Or a mod-relative map file path:
 "map": { "path": "maps/my_map.map" }
 ```
 
-Use only one of `id` or `path`. See [Built-in map IDs](reference/BUILT_IN_MAPS.md) and [Coordinates](reference/COORDINATES.md).
+Use only one of `id` or `path`. See [Built-in map IDs](../reference/BUILT_IN_MAPS.md) and [Coordinates](../reference/COORDINATES.md).
 
 ## Scenario graph
 
@@ -204,7 +204,7 @@ The graph contains steps and the main objective. Condition groups in win/lose ob
 
 ## Available scenario logic
 
-Full lists are in [Scenario reference](reference/SCENARIO_REFERENCE.md).
+Full lists are in [Scenario reference](../reference/SCENARIO_REFERENCE.md).
 
 ### Triggers
 
@@ -301,12 +301,12 @@ Selector rules:
 
 ## Useful reference files
 
-- [Built-in maps](reference/BUILT_IN_MAPS.md)
-- [Coordinates](reference/COORDINATES.md)
-- [Enums](reference/ENUMS.md)
-- [Units](reference/UNITS.md)
-- [Traits](reference/TRAITS.md)
-- [Payloads](reference/PAYLOADS.md)
+- [Built-in maps](../reference/BUILT_IN_MAPS.md)
+- [Coordinates](../reference/COORDINATES.md)
+- [Enums](../reference/ENUMS.md)
+- [Units](../reference/UNITS.md)
+- [Traits](../reference/TRAITS.md)
+- [Payloads](../reference/PAYLOADS.md)
 
 ## Common recipes
 

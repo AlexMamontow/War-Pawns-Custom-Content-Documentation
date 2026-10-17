@@ -34,3 +34,4 @@ actionId,name,type
 32,PlaceFieldCamp,Change Detail And Trait Action
 33,MovementDisruptionAction,Granting Trait Action
 34,MovementBoostAction,Granting Trait Action
+35,ATGunStrike,Distant Attack Action

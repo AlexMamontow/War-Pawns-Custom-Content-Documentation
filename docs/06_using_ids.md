@@ -98,7 +98,7 @@ If player `0` has `nationId` Germany, `unitDataId: 2` means Germany Riflemen.
 
 Unit lists: [reference/UNITS.md](reference/UNITS.md)
 
-Current Germany, USA, and USSR unit lists use `unitDataId: 0-20`.
+Current Germany, USA, and USSR unit lists use `unitDataId: 0-21`. At index `21`: Germany = `Pak40_G`, USA = `M1ATGun`, USSR = `Zis3`.
 
 ## traitId
 
@@ -106,12 +106,12 @@ Use `traitId` when adding, removing, or overriding unit traits.
 
 Trait list: [reference/TRAITS.md](reference/TRAITS.md)
 
-Current public trait range: `0-77`.
+Current public trait range: `0-82`. **Note:** `traitId: 54` is still unverified after a change in `TraitsConfig` order; see the reference warning before using it.
 
 Example:
 
 ```json
-"addTraitIds": [68]
+"addTraitIds": [80]
 ```
 
 ## actionId
@@ -120,7 +120,7 @@ Unit action IDs are rarely needed for beginner scenario scripting.
 
 Unit action list: [reference/UNIT_ACTIONS.md](reference/UNIT_ACTIONS.md)
 
-Current public unit action range: `0-34`.
+Current public unit action range: `0-35` (`35 = ATGunStrike`).
 
 Do not confuse unit actions with scenario actions.
 

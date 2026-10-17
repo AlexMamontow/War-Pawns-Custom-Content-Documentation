@@ -1,12 +1,12 @@
-# Unit IDs
+# Unit IDs by nation
 
-`unitDataId` is the index of the unit inside the nation `UnitsConfig.Items` list. It is per nation, so `unitDataId: 1` means a different unit depending on `nationId`.
+In War Pawns, `unitDataId` is the **index of a unit in the selected nation's `UnitsConfig.Items`**. This is **not** a globally unique identifier: the same index may refer to different units for different nations.
 
-Use with `spawn_units`, `update_units`, recruitable-unit overrides, and unit selectors.
+For example, if a scenario player has `nationId: 0` (Germany), spawning a unit with `unitDataId: 21` selects `Pak40_G`. If the player has `nationId: 3` (USA), the same `unitDataId: 21` selects `M1ATGun`.
 
-Current Germany, USA, and USSR lists contain `unitDataId` values `0` through `20`. The newest visible additions are the field artillery units at `unitDataId: 20`.
+Use these IDs in `initialUnits`, `spawn_units`, unit selection (`unitDataIds`), and available-recruitment overrides. See [Using IDs](../06_using_ids.md) and [Spawn reinforcements](../recipes/spawn_reinforcements.md).
 
-## Nation IDs
+## Nations
 
 | nationId | Nation |
 | ---: | --- |
@@ -15,6 +15,16 @@ Current Germany, USA, and USSR lists contain `unitDataId` values `0` through `20
 | 2 | Britain |
 | 3 | USA |
 | 4 | Japan |
+
+## New anti-tank units (2026-10-17)
+
+| Nation | nationId | unitDataId | Unit asset name |
+| --- | ---: | ---: | --- |
+| Germany | 0 | 21 | `Pak40_G` |
+| USA | 3 | 21 | `M1ATGun` |
+| USSR | 1 | 21 | `Zis3` |
+
+These entries are from the visible `UnitsConfig.Items` lists. They do not imply specific stats or availability for every scenario: unit recruitment can still be restricted by scenario rules.
 
 ## Germany units (`nationId: 0`)
 
@@ -41,6 +51,7 @@ Current Germany, USA, and USSR lists contain `unitDataId` values `0` through `20
 | 18 | `Tiger1` |
 | 19 | `Hummel` |
 | 20 | `FieldArtillery_G` |
+| 21 | `Pak40_G` |
 
 ## USA units (`nationId: 3`)
 
@@ -67,6 +78,7 @@ Current Germany, USA, and USSR lists contain `unitDataId` values `0` through `20
 | 18 | `M26Pershing` |
 | 19 | `M7Priest` |
 | 20 | `FieldArtillery_USA` |
+| 21 | `M1ATGun` |
 
 ## USSR units (`nationId: 1`)
 
@@ -93,8 +105,13 @@ Current Germany, USA, and USSR lists contain `unitDataId` values `0` through `20
 | 18 | `ISU152` |
 | 19 | `SupplyTruckHeavy` |
 | 20 | `FieldArtillery_USSR` |
+| 21 | `Zis3` |
 
 ## Notes
 
-- `FieldArtillery_G`, `FieldArtillery_USA`, and `FieldArtillery_USSR` are faction-specific field artillery entries.
-- Britain and Japan are reserved nation IDs here; public unit lists for them are not included in this reference yet.
+- Unit IDs are per nation. Always check the owning player's `nationId` before selecting a `unitDataId`.
+- `FieldArtillery_G`, `FieldArtillery_USA`, and `FieldArtillery_USSR` remain the faction-specific field artillery units at `unitDataId: 20`.
+- The newer `unitDataId: 21` entries are anti-tank units.
+- Britain and Japan have nation IDs but unit lists for them are not included in this public reference yet.
+
+[Download machine-readable unit list (CSV)](units.csv)

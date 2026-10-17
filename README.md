@@ -109,6 +109,12 @@ The `manifest.json` file tells the game what this mod is and which file should b
 - Use `payload`, not `key`, in JSON scenario actions.
 - The Scenario Room turn-time dropdown defaults to no turn timer. Dropdown item `0` means unlimited turn time.
 
+## Latest game data (October 2026)
+
+The ID reference includes **22 units per documented faction**, traits through `82`, and unit actions through `35`. To find the new anti-tank units, open [Unit IDs](docs/reference/UNITS.md). For officer/economic traits, open [Trait IDs](docs/reference/TRAITS.md). For `ATGunStrike`, open [Unit Action IDs](docs/reference/UNIT_ACTIONS.md).
+
+For the changes and one still-unverified historical trait index, see [UPDATE_NOTES.md](UPDATE_NOTES.md).
+
 ## Where is the full reference?
 
 The beginner guides are in `docs/`.

@@ -53,27 +53,32 @@ traitId,name,type
 51,DefenseExpertise,Positional Regular Radius Trait
 52,ReconAreaTrait,Granting Action Trait
 53,SabotageGrantingTrait,Granting Action Trait
-54,SabotageDebuffTrait,Passive Regular Bonus Trait
-55,SuppressionFire,Positional Combat Radius Trait
-56,Encouraged,Passive Combat Bonus Trait
-57,Deadly,Passive Combat Bonus Trait
-58,Sturdy,Passive Combat Bonus Trait
-59,TankVeteran,Passive Combat Bonus Trait
-60,HeavyTankDestroyer,Passive Combat Bonus Trait
-61,Guarded,Passive Combat Bonus Trait
-62,SabotageInfDebuffTrait,Passive Regular Bonus Trait
-63,IntensiveSpecialTraining,Passive Combat Bonus Trait
-64,ImprovedSniperRifle,Passive Combat Bonus Trait
-65,EncouragedByOfficer,Passive Regular Bonus Trait
-66,CommanderPresence,Positional Regular Radius Trait
-67,ReconDisruption,Positional Regular Radius Trait
-68,EncourageGrantingTrait,Granting Action Trait
-69,RecruitmentGrantingTrait,Granting Action Trait
-70,FieldCampGrantingTrait,Granting Action Trait
-71,MovementDisruptionGrantingTrait,Granting Action Trait
-72,MovementDisruptionDebuffTrait,Passive Regular Bonus Trait
-73,MovementBoostGrantingTrait,Granting Action Trait
-74,MovementBoostTrait,Passive Regular Bonus Trait
+54,UNVERIFIED_IN_CURRENT_SCREENSHOTS,Needs verification
+55,SabotageDebuffTrait,Passive Regular Bonus Trait
+56,SuppressionFire,Positional Combat Radius Trait
+57,Encouraged,Passive Combat Bonus Trait
+58,Deadly,Passive Combat Bonus Trait
+59,Sturdy,Passive Combat Bonus Trait
+60,TankVeteran,Passive Combat Bonus Trait
+61,HeavyTankDestroyer,Passive Combat Bonus Trait
+62,Guarded,Passive Combat Bonus Trait
+63,SabotageInfDebuffTrait,Passive Regular Bonus Trait
+64,IntensiveSpecialTraining,Passive Combat Bonus Trait
+65,ImprovedSniperRifle,Passive Combat Bonus Trait
+66,EncouragedByOfficer,Passive Regular Bonus Trait
+67,CommanderPresence,Positional Regular Radius Trait
+68,ReconDisruption,Positional Regular Radius Trait
+69,EncourageGrantingTrait,Granting Action Trait
+70,RecruitmentGrantingTrait,Granting Action Trait
+71,FieldCampGrantingTrait,Granting Action Trait
+72,MovementDisruptionGrantingTrait,Granting Action Trait
+73,MovementDisruptionDebuffTrait,Passive Regular Bonus Trait
+74,MovementBoostGrantingTrait,Granting Action Trait
 75,MovementBoostTrait,Passive Regular Bonus Trait
 76,Supplies,Positional Regular Radius Trait
 77,LightArmor,Passive Combat Bonus Trait
+78,HeavyATGun,Passive Combat Bonus Trait
+79,ATGun,Passive Combat Bonus Trait
+80,QuickLearners,Experience Multiplier Trait
+81,Quartermaster,Resource Per Flag Bonus Trait
+82,ScavengerTrait,Scavenger Trait
